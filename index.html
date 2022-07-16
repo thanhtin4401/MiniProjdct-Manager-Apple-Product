@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js" integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+
+    <div class="container h-screen flex items-center">
+        <div class="list__wrapped container h-5/6 rounded-md p-9">
+            <h1 class="font-bold text-2xl text-center text-white">LIST PRODUCT</h1>
+            <div class="list__container overflow-y-auto" style="height: 500px;">
+                <table class="table mt-5 text-white font-bold">
+                    <thead>
+                        <tr>
+                            <td>ID</td>
+                            <td>Img</td>
+                            <td>Name</td>
+                            <td>Prive</td>
+                            <td>Tile</td>
+                            <td>Desscription</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody__product">
+                        <tr>
+                            <td>${food.id}</td>
+                            <td>
+                                <img src="./77325-frappuccino-drink-chocolate-starbucks-matcha-white.png" style="max-width: 2rem;" alt="">
+                            </td>
+                            <td>${food.price}</td>
+                            <td>${food.price}</td>
+                            <td>${food.description}</td>
+                            <td>${food.description}</td>
+                            <td class="btn d-flex">
+                                <button onclick="editFood('${food.id}')" class="btn btn-primary mr-2">Edit</button>
+                                <button class="btn btn-warning" onclick="deleteFoodList('${food.id}')">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>${food.id}</td>
+                            <td>
+                                <img src="./77325-frappuccino-drink-chocolate-starbucks-matcha-white.png" style="max-width: 2rem;" alt="">
+                            </td>
+                            <td>${food.price}</td>
+                            <td>${food.price}</td>
+                            <td>${food.description}</td>
+                            <td>${food.description}</td>
+                            <td class="btn d-flex">
+                                <button onclick="editFood('${food.id}')" class="btn btn-primary mr-2">Edit</button>
+                                <button class="btn btn-warning" onclick="deleteFoodList('${food.id}')">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>${food.id}</td>
+                            <td>
+                                <img src="./77325-frappuccino-drink-chocolate-starbucks-matcha-white.png" style="max-width: 2rem;" alt="">
+                            </td>
+                            <td>${food.price}</td>
+                            <td>${food.price}</td>
+                            <td>${food.description}</td>
+                            <td>${food.description}</td>
+                            <td class="btn d-flex">
+                                <button onclick="editFood('${food.id}')" class="btn btn-primary mr-2">Edit</button>
+                                <button class="btn btn-warning" onclick="deleteFoodList('${food.id}')">Delete</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="w-full flex justify-center">
+                <button id="btn--add" class="btn btn-success py-4 px-10 font-bold">ADD</button>
+            </div>
+
+        </div>
+    </div>
+    <div id="input__screen" class="h-screen fixed w-full top-0">
+        <div class="overlay bg-black h-screen w-screen absolute z-10">
+        </div>
+        <div class="form__wrapped items-center justify-center flex w-full h-screen absolute z-20 text-white">
+            <div class="form__container p-10 rounded-xl w-2/5">
+                <div class="flex justify-between text-white mb-4">
+                    <h1 class="font-bold text-2xl text-center">PRODUCT INFORMATION</h1>
+                    <i class="close fa-solid fa-xmark text-2xl text-white"></i>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Name Product:</label>
+                    <input type="text" name="" id="input__name" class="form-control" placeholder="" aria-describedby="helpId">
+                    <small id="helpIdName" class="text-muted">Help text</small>
+                </div>
+                <div class="form-group">
+                    <label for="">Src Img:</label>
+                    <input type="text" name="" id="imput__src" class="form-control" placeholder="" aria-describedby="helpId">
+                    <small id="helpIdSrc" class="text-muted">Help text</small>
+                </div>
+                <div class="form-group">
+                    <label for="">Price:</label>
+                    <input type="number" name="" id="input__price" class="form-control" placeholder="" aria-describedby="helpId">
+                    <small id="helpIdPrice" class="text-muted">Help text</small>
+                </div>
+                <div class="form-group">
+                    <label for="">Title:</label>
+                    <input type="text" name="" id="input__title" class="form-control" placeholder="" aria-describedby="helpId">
+                    <small id="helpIdTitle" class="text-muted">Help text</small>
+                </div>
+                <div class="form-group">
+                    <label for="">Desciption:</label>
+                    <input type="text" name="" id="input__desc" class="form-control" placeholder="" aria-describedby="helpId">
+                    <small id="helpIdDesc" class="text-muted">Help text</small>
+                </div>
+                <button id="add__product" class="w-full rounded-md bg-slate-900 py-2 font-bold" onclick="addProduct()">ADD</button>
+                <button id="update__product" onclick="updateProduct()" class="w-full rounded-md btn btn-warning mt-3 py-2 font-bold disabled">UPDATE</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
