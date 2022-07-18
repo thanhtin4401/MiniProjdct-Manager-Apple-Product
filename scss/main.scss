@@ -50,3 +50,13 @@ body {
         display: block;
     }
 }
+
+.item {
+    .item__content {
+        img {
+            width: 176px;
+            height: 176px;
+            object-fit: cover;
+        }
+    }
+}

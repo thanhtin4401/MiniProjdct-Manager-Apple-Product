@@ -57,4 +57,11 @@ body {
 #input__screen.active .overlay {
   display: block;
 }
+
+.item .item__content img {
+  width: 176px;
+  height: 176px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 /*# sourceMappingURL=main.css.map */

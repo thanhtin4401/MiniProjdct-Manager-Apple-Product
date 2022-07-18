@@ -41,11 +41,13 @@ let renderListProduct = (list) => {
 window.renderListProduct = renderListProduct;
 
 
-// show list prodcut
+// show list product
 let showListProduct = () => {
-    productService.getListProduct().
-        then((res) => {
-            renderListProduct(res.data)
+    productService.getListProduct()
+        .then((res) => {
+            renderListProduct(res)
+            console.log('res.data: ', res);
+
         })
         .catch((err) => {
             console.log(err);
@@ -54,7 +56,7 @@ let showListProduct = () => {
 
 // delete product item
 let deleteProduct = (idProduct) => {
-    productService.deleteProdduct(idProduct)
+    productService.deleteProduct(idProduct)
         .then((res) => {
             showListProduct();
         })
@@ -65,7 +67,6 @@ let deleteProduct = (idProduct) => {
 // add product
 let addProduct = () => {
     let product = controlerListProduct.getInforFromForm();
-
     productService.addProduct(product)
         .then((res) => {
             showListProduct();
@@ -83,7 +84,7 @@ let editProduct = (id) => {
 
     productService.getDetailInforProduct(idProductEdited)
         .then((res) => {
-            controlerListProduct.showInforProductFromList(res.data);
+            controlerListProduct.showInforProductFromList(res);
             document.getElementById("update__product").classList.remove("disabled");
         })
         .catch((err) => {
@@ -99,9 +100,10 @@ let updateProduct = () => {
 
     productService.updateInforProduct(newProduct)
         .then((res) => {
-            showListProduct();
-            document.getElementById("update__product").classList.add("disabled");
-            controlerListProduct.cleaFormInput();
+            // showListProduct();
+            // document.getElementById("update__product").classList.add("disabled");
+            // controlerListProduct.cleaFormInput();
+            console.log(newProduct);
         })
         .catch((err) => {
             console.log(err);
